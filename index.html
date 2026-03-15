@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FDFAF7">
+<title>California + Vegas Road Trip · Mar 25 – Apr 3</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+
+:root {
+  --ink:    #FDFAF7;
+  --ink2:   #F7F3EE;
+  --ink3:   #F2EDE8;
+  --card:   #FFFFFF;
+  --card2:  #F9F6F2;
+  --rust:   #C1513A;
+  --rust2:  #C1513A;
+  --rustl:  rgba(193,81,58,.08);
+  --gold:   #B87820;
+  --goldl:  rgba(184,120,32,.1);
+  --sage:   #3D7A52;
+  --sagel:  rgba(61,122,82,.1);
+  --sky:    #2E6FAD;
+  --skyl:   rgba(46,111,173,.08);
+  --stone:  #8A8478;
+  --stone2: #C8C2BA;
+  --line:   rgba(0,0,0,.08);
+  --line2:  rgba(0,0,0,.04);
+  --text:   #1A1614;
+  --text2:  #6B6460;
+  --text3:  #9E9894;
+}
+
+html { background: var(--ink); }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--ink);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HERO HEADER ── */
+.ph {
+  background: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.hero {
+  padding: 20px 18px 14px;
+  background: linear-gradient(160deg, #FDF5EC 0%, #FDFAF7 60%);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(193,81,58,.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.hero-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 4px;
+  opacity: .8;
+}
+
+.tt {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 5vw, 32px);
+  line-height: 1.1;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.tt em {
+  font-style: italic;
+  color: var(--rust);
+}
+
+.tm {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.bc {
+  background: var(--rustl);
+  color: var(--rust2);
+  border: 1px solid rgba(193,81,58,.3);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── FLIGHT STRIP ── */
+.fb {
+  background: var(--skyl);
+  border: 1px solid rgba(91,155,213,.2);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 18px 14px;
+}
+
+.fe { text-align: center; min-width: 50px; }
+
+.fc {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--sky);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.fci { font-size: 10px; color: var(--text2); margin-top: 2px; }
+.fm { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+
+.fbadge {
+  font-size: 10px;
+  color: var(--sky);
+  background: rgba(91,155,213,.15);
+  border: 1px solid rgba(91,155,213,.25);
+  border-radius: 20px;
+  padding: 2px 10px;
+  letter-spacing: .04em;
+}
+
+.fline {
+  width: 100%;
+  height: 1px;
+  background: repeating-linear-gradient(to right, rgba(91,155,213,.3) 0, rgba(91,155,213,.3) 4px, transparent 4px, transparent 8px);
+}
+
+/* ── ROUTE BAR ── */
+.rb {
+  display: flex;
+  align-items: center;
+  padding: 6px 18px 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 0;
+  background: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+.rb::-webkit-scrollbar { display: none; }
+
+.rs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: none;
+  background: none;
+  font-family: inherit;
+  touch-action: manipulation;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  transition: background .15s;
+  -webkit-appearance: none;
+}
+
+.rs:hover { background: rgba(193,81,58,.06); }
+.rs.active { background: rgba(193,81,58,.08); }
+
+.rd {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--stone2);
+  background: transparent;
+  transition: all .2s;
+}
+
+.rs.active .rd { background: var(--rust); border-color: var(--rust); }
+
+.rl {
+  font-size: 9px;
+  color: var(--text3);
+  white-space: nowrap;
+  font-weight: 400;
+  letter-spacing: .02em;
+}
+
+.rs.active .rl { color: var(--rust2); font-weight: 500; }
+
+.rc {
+  flex-shrink: 0;
+  height: 1px;
+  width: 20px;
+  margin-bottom: 16px;
+  background: var(--stone2);
+  opacity: .4;
+}
+
+/* ── MAIN CONTENT ── */
+.main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 16px 14px calc(32px + env(safe-area-inset-bottom, 0px));
+}
+
+/* ── DAY CARDS ── */
+.dc {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.dc:hover { border-color: var(--line2); }
+
+.dc.active {
+  border-color: rgba(193,81,58,.35);
+  box-shadow: 0 4px 20px rgba(193,81,58,.1), 0 0 0 1px rgba(193,81,58,.12);
+}
+
+.dh {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 16px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  min-height: 64px;
+  touch-action: manipulation;
+  -webkit-appearance: none;
+}
+
+.db2 {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  background: var(--ink3);
+  color: var(--text2);
+  border: 1px solid var(--line);
+  transition: all .2s;
+  letter-spacing: .02em;
+}
+
+.dc.active .db2 {
+  background: var(--rust);
+  border-color: var(--rust);
+  color: white;
+  box-shadow: 0 2px 8px rgba(193,81,58,.25);
+}
+
+.di { flex: 1; min-width: 0; }
+
+.dd {
+  font-size: 10px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-weight: 500;
+}
+
+.dtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text);
+  margin-top: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dloc {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chev {
+  font-size: 20px;
+  color: var(--stone2);
+  transition: transform .25s cubic-bezier(.34,1.56,.64,1);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.dc.active .chev {
+  transform: rotate(90deg);
+  color: var(--rust);
+}
+
+.dbody {
+  display: none;
+  padding: 0 16px 18px;
+  border-top: 1px solid var(--line);
+}
+
+.dc.active .dbody { display: block; }
+
+/* ── SECTION LABELS ── */
+.sec { margin-top: 1rem; }
+
+.sl {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--text3);
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line2);
+}
+
+/* ── TIMELINE ── */
+.timeline { display: flex; flex-direction: column; }
+
+.tl-item { display: flex; gap: 12px; align-items: stretch; }
+
+.tl-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 52px;
+  flex-shrink: 0;
+}
+
+.tl-time {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--rust);
+  white-space: nowrap;
+  padding-top: 2px;
+  letter-spacing: .02em;
+}
+
+.tl-line-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tl-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--rust);
+  flex-shrink: 0;
+  margin-top: 7px;
+  box-shadow: 0 0 0 3px rgba(193,81,58,.12);
+}
+
+.tl-line {
+  width: 1px;
+  flex: 1;
+  background: var(--line);
+  margin-top: 3px;
+}
+
+.tl-item:last-child .tl-line { display: none; }
+
+.tl-right { flex: 1; padding-bottom: 14px; }
+
+.tl-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.tl-desc {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 3px;
+  line-height: 1.55;
+}
+
+.tl-tag {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 9px;
+  border-radius: 20px;
+  margin-top: 5px;
+  border: 1px solid;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+
+.tt-nature { background: #E8F5EC; color: #2A6B40; border-color: #C0DFC8; }
+.tt-drive  { background: var(--ink2); color: var(--text2); border-color: var(--line); }
+.tt-food   { background: #FEF4E4; color: #9A5E0A; border-color: #F0D9A8; }
+.tt-enter  { background: #E8F1FB; color: #1E5A9A; border-color: #B8D0EC; }
+.tt-rest   { background: var(--ink2); color: var(--text2); border-color: var(--line); }
+
+/* ── RESTAURANT CARDS ── */
+.rest-grid { display: flex; flex-direction: column; gap: 8px; }
+
+.rc2 {
+  background: var(--ink3);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: border-color .15s;
+}
+
+.rc2:hover { border-color: rgba(193,81,58,.3); }
+
+.rl2 { flex: 1; min-width: 0; }
+
+.rn {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.rv {
+  font-size: 11px;
+  color: var(--text2);
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+.rsig {
+  font-size: 11px;
+  color: var(--gold);
+  margin-top: 4px;
+  font-style: italic;
+  opacity: .85;
+}
+
+.rr {
+  text-align: right;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.rp {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--rust);
+  white-space: nowrap;
+}
+
+.rbadge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  letter-spacing: .03em;
+}
+
+.rb-bud { background: #E8F5EC; color: #2A6B40; border: 1px solid #C0DFC8; }
+.rb-mid { background: #E8F1FB; color: #1E5A9A; border: 1px solid #B8D0EC; }
+.rb-spl { background: #FEF4E4; color: #9A5E0A; border: 1px solid #F0D9A8; }
+
+/* ── HOTEL CARDS ── */
+.hotel-grid { display: flex; flex-direction: column; gap: 7px; }
+
+.hc {
+  background: var(--ink3);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 11px 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  transition: border-color .15s;
+}
+
+.hc:hover { border-color: rgba(184,120,32,.3); }
+
+.hn { font-size: 13px; font-weight: 500; color: var(--text); }
+.hv { font-size: 11px; color: var(--text2); margin-top: 2px; line-height: 1.4; }
+.hp { font-size: 13px; font-weight: 600; color: var(--gold); white-space: nowrap; flex-shrink: 0; }
+
+/* ── WARNING ── */
+.warn {
+  background: #FEF4E4;
+  border: 1px solid #F0D9A8;
+  border-radius: 10px;
+  padding: 10px 13px;
+  font-size: 12px;
+  color: #7A4F10;
+  line-height: 1.55;
+}
+
+/* ── BUDGET ── */
+.budrow {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin-top: 1.25rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bui {
+  text-align: center;
+  padding: 14px 8px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.bui:nth-child(3n) { border-right: none; }
+.bui:nth-child(n+5) { border-bottom: none; }
+.bui:nth-child(4),
+.bui:nth-child(5) { border-bottom: none; }
+
+.bui.total-cell {
+  grid-column: 1 / -1;
+  border-right: none;
+  border-bottom: none;
+  border-top: 1px solid rgba(193,81,58,.15);
+  padding: 14px 8px 12px;
+  background: var(--rustl);
+}
+
+.bun {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.bun.tot {
+  color: var(--rust2);
+  font-size: 22px;
+}
+
+.bul {
+  font-size: 9px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+/* ── GEMS ── */
+.gems {
+  margin-top: 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.25rem 1.25rem;
+  overflow: hidden;
+}
+
+.gems-t {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.gems-g {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.gem {
+  background: var(--ink3);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  transition: border-color .15s;
+}
+
+.gem:hover { border-color: var(--line2); }
+.gem-n { font-size: 12px; font-weight: 500; color: var(--sage); }
+.gem-d { font-size: 11px; color: var(--text2); margin-top: 3px; line-height: 1.4; }
+
+/* ── BUTTON RESETS ── */
+button.dh, button.rs {
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+button.dh:focus-visible,
+button.rs:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .hero { padding: 16px 16px 12px; }
+  .tt { font-size: 20px; }
+  .hero::before { display: none; }
+  .fb { margin: 0 14px 12px; }
+  .rb { padding: 4px 14px 8px; }
+  .main { padding: 12px 12px calc(28px + env(safe-area-inset-bottom, 0px)); }
+  .dc { border-radius: 14px; margin-bottom: 8px; }
+  .dh { padding: 14px 14px; min-height: 60px; }
+  .db2 { width: 38px; height: 38px; border-radius: 10px; font-size: 10px; }
+  .dtitle { font-size: 15px; }
+  .dbody { padding: 0 14px 14px; }
+  .tl-left { width: 46px; }
+  .tl-time { font-size: 10px; }
+
+  /* Stack restaurant cards on mobile */
+  .rc2 {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .rr {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  /* Stack hotel cards on mobile */
+  .hc {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hc .hp { align-self: flex-start; }
+
+  /* Budget 2-col on mobile */
+  .budrow { grid-template-columns: repeat(2, 1fr); }
+  .bui:nth-child(3n) { border-right: 1px solid var(--line); }
+  .bui:nth-child(2n) { border-right: none; }
+  .bui:nth-child(n+5) { border-bottom: 1px solid var(--line); }
+  .bui:nth-child(5), .bui:nth-child(6) { border-bottom: none; }
+  .bui:nth-child(4) { border-bottom: 1px solid var(--line); border-right: none; }
+
+  .gems-g { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .gem { padding: 9px 10px; }
+}
+
+/* ── MAP EMBED ── */
+.map-wrap {
+  margin-top: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  position: relative;
+}
+.map-wrap iframe {
+  width: 100%;
+  height: 260px;
+  display: block;
+  border: none;
+}
+.map-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--rust);
+  letter-spacing: .03em;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  pointer-events: none;
+}
+.map-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 8px 14px;
+  background: var(--ink2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--rust);
+  text-decoration: none;
+  width: fit-content;
+  transition: background .15s, border-color .15s;
+  cursor: pointer;
+  font-family: inherit;
+  -webkit-appearance: none;
+}
+.map-btn:hover {
+  background: var(--rustl);
+  border-color: rgba(193,81,58,.25);
+}
+.map-btn svg {
+  width: 14px; height: 14px;
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .map-wrap iframe { height: 200px; }
+}
+</style>
+</head>
+<body>
+
+<div class="ph"><div class="hero"><div class="hero-top"><div><div class="hero-eyebrow">Mar 25 – Apr 3, 2026</div><div class="tt"><em>California</em> + Vegas</div></div><div class="bc">~$3,200</div></div><div class="tm">10 days · 4 National Parks · LAX → SFO</div></div></div>
+
+<div class="fb">
+  <div class="fe"><div class="fc">LAX</div><div class="fci">Los Angeles</div></div>
+  <div class="fm"><div class="fbadge">Multi-city flight</div><div class="fline"></div></div>
+  <div class="fe"><div class="fc">SFO</div><div class="fci">San Francisco</div></div>
+</div>
+
+<div class="rb" id="rb">
+  <button class="rs active" onclick="act(0)" type="button"><div class="rd"></div><div class="rl">LA</div></button>
+  <div class="rc"></div>
+  <button class="rs" onclick="act(1)" type="button"><div class="rd"></div><div class="rl">Catalina</div></button>
+  <div class="rc"></div>
+  <button class="rs" onclick="act(2)" type="button"><div class="rd"></div><div class="rl">Vegas</div></button>
+  <div class="rc"></div>
+  <button class="rs" onclick="act(3)" type="button"><div class="rd"></div><div class="rl">Joshua Tree</div></button>
+  <div class="rc"></div>
+  <button class="rs" onclick="act(4)" type="button"><div class="rd"></div><div class="rl">Sequoia</div></button>
+  <div class="rc"></div>
+  <button class="rs" onclick="act(5)" type="button"><div class="rd"></div><div class="rl">Yosemite</div></button>
+  <div class="rc"></div>
+  <button class="rs" onclick="act(6)" type="button"><div class="rd"></div><div class="rl">Santa Barbara</div></button>
+  <div class="rc"></div>
+  <button class="rs" onclick="act(7)" type="button"><div class="rd"></div><div class="rl">Big Sur</div></button>
+  <div class="rc"></div>
+  <button class="rs" onclick="act(8)" type="button"><div class="rd"></div><div class="rl">SF</div></button>
+</div>
+
+<div class="main">
+
+<!-- ===================== DAY 1 ===================== -->
+<div class="dc active" id="c0" data-tog="tog(0)">
+  <button class="dh" type="button" onclick="tog(0)">
+    <div class="db2">D1</div>
+    <div class="di">
+      <div class="dd">Mar 25</div>
+      <div class="dtitle">Arrival in Los Angeles</div>
+      <div class="dloc">Beverly Hills · Venice · Santa Monica · Malibu</div>
+    </div>
+    <div class="chev">›</div>
+  </button>
+  <div class="dbody">
+    <div style="background:#F0F9F4;border:1.5px solid #5A9968;border-radius:12px;padding:11px 14px;margin-top:1rem;margin-bottom:.25rem;">
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <span style="font-size:15px;">🚗</span>
+        <div style="font-size:13px;font-weight:600;color:#1a1614;">Ford Mustang Convertible — Booked</div>
+        <span style="margin-left:auto;font-size:11px;font-weight:600;background:#5A9968;color:white;padding:2px 9px;border-radius:20px;">Confirmed</span>
+      </div>
+      <div style="font-size:11px;color:#6B6460;margin-top:5px;line-height:1.6;">
+        Priceless Car Rental · LAX · Pick up Mar 25 1:30 PM · Drop off Mar 30 1:30 PM<br>
+        Confirmation: <span style="color:#3D7A52;font-weight:500;">PRPGP10634396</span> · Unlimited mileage · Automatic
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Day schedule</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">1:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Pick up rental car at LAX — Ford Mustang Convertible 🎉</div><div class="tl-desc">Priceless Car Rental · 9750 Airport Blvd, LAX · Confirmation: PRPGP10634396 · Compact convertible — perfect for the California coast. Beverly Hills is only 20 min from the airport.</div><span class="tl-tag tt-drive">Booked · 1:30 PM pickup</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">1:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Rodeo Drive — Beverly Hills</div><div class="tl-desc">Walk the three blocks of the world's most famous shopping street — Gucci, Cartier, Bulgari, Louis Vuitton all on one strip. You don't need to buy anything; the architecture, the cars, and the people-watching are the attraction. Very LA, very glamorous.</div><span class="tl-tag tt-enter">~45 min · Free to explore</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">2:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Beverly Gardens Park + The Beverly Hills Sign</div><div class="tl-desc">The iconic Beverly Hills sign in the rose garden — perfect photo stop. The park runs along Santa Monica Blvd for 1.9 miles, beautiful and peaceful. The Lily Pond and cactus garden are highlights.</div><span class="tl-tag tt-nature">~30 min · Free</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">3:15 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Drive to Venice — check in to hotel</div><div class="tl-desc">20 min from Beverly Hills to Santa Monica / Venice. Drop bags, freshen up from the flight.</div><span class="tl-tag tt-drive">~20 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">4:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Venice Canals Walk</div><div class="tl-desc">Stroll the quiet canals of Venice — beautiful narrow waterways lined with gardens. Very underrated and much calmer than the boardwalk.</div><span class="tl-tag tt-nature">~45 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">5:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Venice Beach Boardwalk</div><div class="tl-desc">Street performers, outdoor muscle beach gym, skate park. Classic LA chaos — walk it once.</div><span class="tl-tag tt-enter">~45 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">6:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Santa Monica Pier & Palisades Park</div><div class="tl-desc">Walk the pier at golden hour, then stroll Palisades Park above PCH for sweeping sunset views over the Pacific. The light in late March is stunning.</div><span class="tl-tag tt-nature">~1 hr</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Romantic dinner in Santa Monica</div><div class="tl-desc">See picks below — reserve in advance, especially Pasjoli. First night in California deserves something special.</div><span class="tl-tag tt-food">~2 hrs</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Romantic dinner picks · Santa Monica</div>
+      <div class="rest-grid">
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Pasjoli</div>
+            <div class="rv">Michelin-starred Parisian bistro — candlelit, intimate garden patio. The tableside duck for two is unforgettable.</div>
+            <div class="rsig">Must order: roasted duck for two, steamed mussels with baguette</div>
+          </div>
+          <div class="rr"><div class="rp">$$$</div><span class="rbadge rb-spl">Splurge</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Capo Restaurant</div>
+            <div class="rv">Tuscan fireplace, beamed ceilings, candlelit tables, art collection on the walls. One of the most romantic rooms in LA.</div>
+            <div class="rsig">Must order: house-made pastas, any seasonal fish</div>
+          </div>
+          <div class="rr"><div class="rp">$$$</div><span class="rbadge rb-spl">Splurge</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Forma Restaurant & Cheese Bar</div>
+            <div class="rv">Stylish Italian spot where pasta is tossed in giant cheese wheels tableside. Elegant yet playful.</div>
+            <div class="rsig">Must order: Chitarra Cacio e Pepe in the cheese wheel</div>
+          </div>
+          <div class="rr"><div class="rp">$$</div><span class="rbadge rb-mid">Mid-range</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Sirena at the Georgian Hotel</div>
+            <div class="rv">Historic 1933 Art Deco hotel — Italian cuisine with ocean views on Ocean Avenue. Very romantic setting.</div>
+            <div class="rsig">Must order: fresh pasta, seafood dishes</div>
+          </div>
+          <div class="rr"><div class="rp">$$</div><span class="rbadge rb-mid">Mid-range</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Hotel · Booked ✓</div>
+      <div style="background:#F0F9F4;border:1.5px solid #5A9968;border-radius:12px;padding:13px 14px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="font-size:16px;">🏨</span>
+          <div style="font-size:14px;font-weight:600;color:#1a1614;">Maison Twenty Seven</div>
+          <span style="margin-left:auto;font-size:11px;font-weight:600;background:#5A9968;color:white;padding:2px 9px;border-radius:20px;">Confirmed</span>
+        </div>
+        <div style="font-size:12px;color:#6B6460;line-height:1.6;">
+          1001 3rd St, Santa Monica, CA 90403<br>
+          Check-in: Wed Mar 25 from 3:00 PM · Check-out: Fri Mar 27 at 11 AM<br>
+          Classic Room · 1 King Bed · 2 Adults<br>
+          <span style="color:#3D7A52;font-weight:500;">Expedia ref: 72072183142915</span>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text3);margin-top:6px;padding-left:2px;">Hotel covers D1 &amp; D2 nights (Mar 25–26). You'll need to book accommodation for D2 night in Santa Barbara after Catalina.</div>
+    </div>
+    <div class="sec">
+      <div class="sl">Map &amp; Route</div>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?saddr=LAX+Airport,+Los+Angeles,+CA&daddr=Rodeo+Drive,+Beverly+Hills,+CA+to:Venice+Beach,+CA+to:Santa+Monica+Pier,+CA&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-label">📍 Day 1 — Los Angeles</div>
+      </div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/LAX+Airport,+Los+Angeles,+CA/Rodeo+Drive,+Beverly+Hills,+CA/Venice+Beach,+CA/Santa+Monica+Pier,+CA/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        Open full route in Google Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DAY 2 ===================== -->
+<div class="dc" id="c1" data-tog="tog(1)">
+  <button class="dh" type="button" onclick="tog(1)">
+    <div class="db2">D2</div>
+    <div class="di">
+      <div class="dd">Mar 26</div>
+      <div class="dtitle">Catalina Island</div>
+      <div class="dloc">Long Beach Ferry → Avalon · Casino Point · Golf cart coast tour</div>
+    </div>
+    <div class="chev">›</div>
+  </button>
+  <div class="dbody">
+    <div class="sec">
+      <div class="sl">Day schedule</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Drive to Long Beach Ferry Terminal</div><div class="tl-desc">The Catalina Express departs from Long Beach — about 45 min from Santa Monica. Book online in advance, no need to go weeks ahead like Channel Islands.</div><span class="tl-tag tt-drive">~45 min from Santa Monica</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">9:00 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Catalina Express Ferry departs</div><div class="tl-desc">75-minute crossing to Avalon — the island's only town. Flying fish, dolphins and pelicans all along the way. Book round-trip online at catalinaexpress.com. ~$80 roundtrip.</div><span class="tl-tag tt-drive">75 min · Book ahead online</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">10:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Arrive Avalon — explore the waterfront</div><div class="tl-desc">Walk the crescent harbour, grab a coffee at one of the waterfront cafés. Avalon feels like a tiny Mediterranean village — pastel buildings, palm trees, zero cars.</div><span class="tl-tag tt-enter">~45 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">11:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Casino Point Underwater Park — snorkel or glass-bottom boat</div><div class="tl-desc">The Casino Point Marine Reserve is one of the best shore snorkel spots in California — crystal clear water, garibaldi fish, sea bass, bat rays. Rent gear right on the dock. Non-swimmers: take the glass-bottom boat tour instead — equally incredible.</div><span class="tl-tag tt-nature">~1.5 hrs · Gear rental available</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">1:15 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Lunch at Steve's Steakhouse or The Lobster Trap</div><div class="tl-desc">Steve's has the best ocean view dining in Avalon. The Lobster Trap is more casual but the seafood is exceptional. Both are walkable from the ferry dock.</div><span class="tl-tag tt-food">~1 hr</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">2:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Golf cart tour around the coast</div><div class="tl-desc">Rent a golf cart (the main mode of transport on Catalina) and explore the coastal roads. Pebbly Beach, the botanical garden, Wrigley Memorial — and you might spot Catalina's famous bison herds on the hillsides.</div><span class="tl-tag tt-nature">~1.5 hrs · Cart rental ~$50/hr</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">4:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Catalina Express ferry back to Long Beach</div><div class="tl-desc">Check the return schedule when booking — multiple afternoon departures. Catch the sunset on the water on the way back.</div><span class="tl-tag tt-drive">75 min return</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Drive to Santa Barbara — dinner on arrival</div><div class="tl-desc">1.5 hrs up the 101. Check in and head out for a late dinner on State Street.</div><span class="tl-tag tt-drive">~1.5 hrs to Santa Barbara</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Romantic dinner picks · Santa Barbara</div>
+      <div class="rest-grid">
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">San Ysidro Ranch — Stonehouse Restaurant</div>
+            <div class="rv">One of the most iconic dining rooms in California — candlelit stone cottage on a historic ranch where JFK and Jackie honeymooned. Book well in advance.</div>
+            <div class="rsig">Must order: California seasonal tasting menu, local wines</div>
+          </div>
+          <div class="rr"><div class="rp">$$$$</div><span class="rbadge rb-spl">Splurge</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">The Lark</div>
+            <div class="rv">Warm, beautiful dining room in the Funk Zone — California farm-to-table, communal but intimate. Always buzzing, always delicious.</div>
+            <div class="rsig">Must order: wood-roasted chicken, any seasonal vegetable dishes</div>
+          </div>
+          <div class="rr"><div class="rp">$$$</div><span class="rbadge rb-mid">Mid-range</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Blackbird SB</div>
+            <div class="rv">Innovative, hyper-local cuisine in a swanky romantic ambiance. Sister of Chicago's Maple & Ash. Top pick for a classy evening.</div>
+            <div class="rsig">Must order: focaccia, casarecce pasta, polenta</div>
+          </div>
+          <div class="rr"><div class="rp">$$$</div><span class="rbadge rb-mid">Mid-range</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Hotels · Santa Barbara</div>
+      <div class="hotel-grid">
+        <div class="hc"><div><div class="hn">Motel 6 Santa Barbara</div><div class="hv">Basic and clean — save budget for the islands day</div></div><div class="hp">~$100/night</div></div>
+        <div class="hc"><div><div class="hn">Hotel Indigo Santa Barbara</div><div class="hv">Boutique, walkable to State Street restaurants</div></div><div class="hp">~$180/night</div></div>
+        <div class="hc"><div><div class="hn">Belmond El Encanto</div><div class="hv">Hillside resort, ocean views, world-class spa</div></div><div class="hp">~$600+/night</div></div>
+      </div>
+    </div>
+    <div class="sec"><div class="warn">⚠ Book Catalina Express in advance at catalinaexpress.com — late March is shoulder season so ferries rarely sell out, but booking ahead guarantees your preferred departure time. ~$80 roundtrip per person. Bring sunscreen and a light layer for the crossing.</div></div>
+    <div class="sec">
+      <div class="sl">Map &amp; Route</div>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?saddr=Santa+Monica,+CA&daddr=Long+Beach+Ferry+Terminal,+CA+to:Avalon,+Catalina+Island,+CA+to:Santa+Barbara,+CA&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Day 2 — Catalina Island">
+        </iframe>
+        <div class="map-label">📍 Day 2 — Catalina Island</div>
+      </div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Santa+Monica,+CA/Long+Beach+Ferry+Terminal,+Long+Beach,+CA/Avalon,+CA/Santa+Barbara,+CA/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        Open full route in Google Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DAY 3 ===================== -->
+<div class="dc" id="c2" data-tog="tog(2)">
+  <button class="dh" type="button" onclick="tog(2)">
+    <div class="db2">D3</div>
+    <div class="di">
+      <div class="dd">Mar 27 · Friday</div>
+      <div class="dtitle">Drive to Las Vegas</div>
+      <div class="dloc">Santa Barbara → I-15 → The Strip · ~270 mi · 🚗 Mustang convertible</div>
+    </div>
+    <div class="chev">›</div>
+  </button>
+  <div class="dbody">
+    <div class="sec">
+      <div class="sl">Day schedule</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">8:00 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Leave Santa Barbara — grab coffee for the road</div><div class="tl-desc">Hit the road early to beat Friday afternoon Vegas traffic. Load a good playlist.</div><span class="tl-tag tt-drive">Leave by 8–9 AM max</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">10:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Stop: Seven Magic Mountains</div><div class="tl-desc">The neon, 30-ft stacked boulder art installation in the Mojave — free to visit, very photogenic. Pull over for 20 min.</div><span class="tl-tag tt-enter">Quick stop · Free</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">11:00 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Stop: Baker — world's tallest thermometer</div><div class="tl-desc">Grab lunch at Mad Greek Café — a surprisingly good roadside gem with gyros and Greek salads.</div><span class="tl-tag tt-food">~40 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">1:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Arrive Las Vegas — check in to hotel</div><div class="tl-desc">Drop bags, explore the hotel, maybe hit the pool if it's warm enough.</div><span class="tl-tag tt-rest">Check-in · Rest</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">4:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Walk the Strip — daytime</div><div class="tl-desc">Bellagio Conservatory, Venetian Grand Canal, Caesars Palace Forum Shops. All free to wander.</div><span class="tl-tag tt-enter">~2 hrs</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Meet the family — dinner together on the Strip</div><div class="tl-desc">Friday night is family night! Cousins arrive and you all explore the Strip together. Bellagio fountains, Casino floor, and a big group dinner. Lago by Julian Serrano is perfect for groups — small plates everyone can share right on Lake Bellagio.</div><span class="tl-tag tt-enter">Family reunion night 🎉</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Romantic dinner picks · Las Vegas</div>
+      <div class="rest-grid">
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Eiffel Tower Restaurant</div>
+            <div class="rv">110 feet above the Strip inside the Paris hotel — floor-to-ceiling windows overlooking the Bellagio fountains. Chef Joho's French cuisine is exceptional. One of the most romantic views in Vegas.</div>
+            <div class="rsig">Must order: Beef Wellington, foie gras, Grand Marnier soufflé</div>
+          </div>
+          <div class="rr"><div class="rp">$$$$</div><span class="rbadge rb-spl">Splurge</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Delilah at Wynn Las Vegas</div>
+            <div class="rv">The most gorgeous restaurant on the Strip — 1950s supper club, art deco chandeliers, live entertainment. Designed by Hermès. Stunning beyond words.</div>
+            <div class="rsig">Must order: caviar service, any steak, tableside desserts</div>
+          </div>
+          <div class="rr"><div class="rp">$$$$</div><span class="rbadge rb-spl">Splurge</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Lago by Julian Serrano</div>
+            <div class="rv">Italian small plates right on Lake Bellagio with the fountains outside your window. Perfect for sharing everything. Very romantic patio.</div>
+            <div class="rsig">Must order: red wine risotto, lamb ragù, seafood pastas</div>
+          </div>
+          <div class="rr"><div class="rp">$$$</div><span class="rbadge rb-mid">Mid-range</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Mon Ami Gabi at Paris Las Vegas</div>
+            <div class="rv">Classic French bistro with a Strip-side terrace — great for watching the Bellagio fountains dance. 25+ years as a Vegas institution.</div>
+            <div class="rsig">Must order: steak frites, French onion soup, crème brûlée</div>
+          </div>
+          <div class="rr"><div class="rp">$$</div><span class="rbadge rb-mid">Mid-range</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Hotels · The Strip</div>
+      <div class="hotel-grid">
+        <div class="hc"><div><div class="hn">Horseshoe Las Vegas</div><div class="hv">Center-Strip value — ask for a high-floor room</div></div><div class="hp">~$80/night</div></div>
+        <div class="hc"><div><div class="hn">Treasure Island</div><div class="hv">Fun, mid-Strip, great pool, free parking</div></div><div class="hp">~$110/night</div></div>
+        <div class="hc"><div><div class="hn">The Venetian</div><div class="hv">All-suite hotel, stunning rooms, best dining options</div></div><div class="hp">~$250/night</div></div>
+      </div>
+    </div>
+    <div class="sec"><div class="warn">⚠ Friday traffic to Vegas can add 2+ hours after noon. Leave Santa Barbara no later than 9 AM to arrive comfortably by early afternoon.</div></div>
+    <div class="sec">
+      <div class="sl">Map &amp; Route</div>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?saddr=Santa+Barbara,+CA&daddr=Baker,+CA+to:Seven+Magic+Mountains,+NV+to:Las+Vegas,+NV&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Day 3 — Drive to Vegas">
+        </iframe>
+        <div class="map-label">📍 Day 3 — Drive to Vegas</div>
+      </div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Santa+Barbara,+CA/Seven+Magic+Mountains,+NV/Baker,+CA/Las+Vegas+Strip,+Las+Vegas,+NV/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        Open full route in Google Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DAYS 4–5 ===================== -->
+<div class="dc" id="c3" data-tog="tog(3)">
+  <button class="dh" type="button" onclick="tog(3)">
+    <div class="db2" style="font-size:10px">D4–5</div>
+    <div class="di">
+      <div class="dd">Mar 28–29</div>
+      <div class="dtitle">Las Vegas — Two Days with Family</div>
+      <div class="dloc">Strip roaming · Valley of Fire · Shows · Cousin crew</div>
+    </div>
+    <div class="chev">›</div>
+  </button>
+  <div class="dbody">
+    <div class="sec">
+      <div style="background:var(--sagl);border:1px solid #C0D8CA;border-radius:10px;padding:10px 13px;font-size:12px;color:#2A5C3A;line-height:1.6;margin-bottom:.75rem;">
+        👨‍👩‍👧‍👦 Roaming with cousins &amp; family both days — keep plans flexible and fun. Great time for group meals, poolside hangs, and letting the cousins lead the way on casino floors!
+      </div>
+      <div class="sl">Day 4 schedule (Mar 28)</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">9:00 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Hotel breakfast / brunch</div><div class="tl-desc">Sadelle's at Bellagio does a legendary weekend brunch — bagel towers and smoked salmon platters. Perfect for a big group — book ahead.</div><span class="tl-tag tt-food">~1.5 hrs</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">11:00 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Valley of Fire State Park — family excursion</div><div class="tl-desc">45 min drive for breathtaking red sandstone formations — Wave, Elephant Rock, Ancient Petroglyphs. A brilliant family outing the cousins will love. Carpool and make a day of it.</div><span class="tl-tag tt-nature">~3 hrs · Great for groups</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">3:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Return to Strip — freshen up</div><div class="tl-desc">Pool time, relax, get ready for the evening.</div><span class="tl-tag tt-rest">Rest</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">6:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Bellagio Fountains show</div><div class="tl-desc">Go early evening — the shows run every 15–30 min. Watch from the bridge or lakeside path. Magical at dusk.</div><span class="tl-tag tt-enter">Free · 8 min shows</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Group dinner with family</div><div class="tl-desc">For a big group, The Venetian's Grand Lux Cafe handles large parties well. Or Eataly at Park MGM — a massive Italian food market where everyone picks what they want. Save the splurge restaurants for just the two of you.</div><span class="tl-tag tt-food">~2.5 hrs</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Day 5 schedule (Mar 29)</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">10:00 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">The SPHERE experience</div><div class="tl-desc">Book tickets in advance for the immersive venue — even the exterior is stunning. Check the schedule for shows.</div><span class="tl-tag tt-enter">~2 hrs</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">12:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Lunch at The Venetian</div><div class="tl-desc">Walk the Grand Canal Shoppes and grab lunch. Bouchon Bistro inside The Venetian is an excellent French option.</div><span class="tl-tag tt-food">~1.5 hrs</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">2:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Caesars Palace Forum Shops + High Roller Observation Wheel</div><div class="tl-desc">The Forum Shops are spectacular just to wander. The High Roller gives 360° Strip views — stunning at dusk. ~$30/person.</div><span class="tl-tag tt-enter">~2 hrs</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">8:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Group show + farewell drinks with family</div><div class="tl-desc">Cirque du Soleil O at Bellagio is perfect for families — all ages love it. Book as a group early. Then rooftop cocktails at the Cosmopolitan's Marquee or the High Roller bar to close the Vegas chapter together.</div><span class="tl-tag tt-enter">Family farewell evening</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Dinner picks — romantic nights (just you two)</div>
+      <div class="rest-grid">
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Joël Robuchon at MGM Grand</div>
+            <div class="rv">The only Vegas restaurant ever to receive 3 Michelin stars. 20th anniversary in 2025. Opulent French dining in the grand manner — an absolute bucket list meal.</div>
+            <div class="rsig">Must order: Le Caviar Imperiale, the degustation tasting menu</div>
+          </div>
+          <div class="rr"><div class="rp">$$$$</div><span class="rbadge rb-spl">Splurge</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">SW Steakhouse at Wynn</div>
+            <div class="rv">Overlooks the Lake of Dreams — lively yet intimate. Polished service, outstanding wagyu beef selection, caviar service to start.</div>
+            <div class="rsig">Must order: caviar service, 48oz tomahawk for two, wagyu beef</div>
+          </div>
+          <div class="rr"><div class="rp">$$$$</div><span class="rbadge rb-spl">Splurge</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Scarpetta at The Cosmopolitan</div>
+            <div class="rv">Views of the Bellagio fountains, understated elegance, outstanding house-made pasta. One of the best Italian restaurants on the Strip.</div>
+            <div class="rsig">Must order: spaghetti with tomato and basil (famous dish), branzino</div>
+          </div>
+          <div class="rr"><div class="rp">$$$</div><span class="rbadge rb-mid">Mid-range</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Hotels · Stay same hotel as D3</div>
+      <div class="hotel-grid">
+        <div class="hc"><div><div class="hn">Flamingo Las Vegas</div><div class="hv">Classic Strip icon, great pool, fun wildlife habitat on property</div></div><div class="hp">~$100/night</div></div>
+        <div class="hc"><div><div class="hn">Wynn Las Vegas</div><div class="hv">Best luxury on the Strip — unmatched rooms and service</div></div><div class="hp">~$300+/night</div></div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Map &amp; Route</div>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?saddr=Bellagio,+Las+Vegas,+NV&daddr=The+Venetian+Las+Vegas,+NV+to:Valley+of+Fire+State+Park,+NV&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Days 4-5 — Las Vegas">
+        </iframe>
+        <div class="map-label">📍 Days 4-5 — Las Vegas</div>
+      </div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Bellagio,+Las+Vegas,+NV/The+Venetian,+Las+Vegas,+NV/Caesars+Palace,+Las+Vegas,+NV/Valley+of+Fire+State+Park,+NV/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        Open full route in Google Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DAY 6 ===================== -->
+<div class="dc" id="c4" data-tog="tog(4)">
+  <button class="dh" type="button" onclick="tog(4)">
+    <div class="db2">D6</div>
+    <div class="di">
+      <div class="dd">Mar 30</div>
+      <div class="dtitle">Joshua Tree National Park</div>
+      <div class="dloc">Vegas → Joshua Tree → Palm Springs · 🚗 Car drop-off Mar 30</div>
+    </div>
+    <div class="chev">›</div>
+  </button>
+  <div class="dbody">
+    <div class="sec">
+      <div class="sl">Day schedule</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Leave Las Vegas</div><div class="tl-desc">Drive south on I-15, then east through the Mojave. Coffee from your hotel before departure.</div><span class="tl-tag tt-drive">~3 hrs to North Entrance</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">10:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Skull Rock Trail</div><div class="tl-desc">Easy 1.7-mile loop past the famous Skull Rock formation and wild boulder landscapes. Great intro to the park.</div><span class="tl-tag tt-nature">~1 hr</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">11:45 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Hidden Valley Nature Trail</div><div class="tl-desc">Iconic 1-mile loop through a secret valley surrounded by massive boulder formations. One of the most beautiful short hikes in California.</div><span class="tl-tag tt-nature">~45 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">1:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Keys View — picnic lunch</div><div class="tl-desc">Drive up to 5,185 ft for sweeping desert views. Pack a lunch from a Vegas deli before leaving.</div><span class="tl-tag tt-food">Bring your own</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">2:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Cholla Cactus Garden</div><div class="tl-desc">Surreal ½-mile walk through a dense forest of jumping cholla cactus. Very photogenic. Don't touch!</div><span class="tl-tag tt-nature">~30 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">4:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Drive to Palm Springs</div><div class="tl-desc">~45 min from the South Entrance. Check in, refresh, enjoy the iconic mid-century modern town.</div><span class="tl-tag tt-drive">~45 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Romantic dinner in Palm Springs</div><div class="tl-desc">See picks below — reserve ahead.</div><span class="tl-tag tt-food">~2 hrs</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Romantic dinner picks · Palm Springs</div>
+      <div class="rest-grid">
+        <div class="rc2"><div class="rl2"><div class="rn">Copley's on Palm Canyon</div><div class="rv">Cary Grant's former estate — lush garden patio, California cuisine, one of the most romantic venues in the desert.</div><div class="rsig">Must order: rack of lamb, truffle risotto, any seafood</div></div><div class="rr"><div class="rp">$$$</div><span class="rbadge rb-spl">Splurge</span></div></div>
+        <div class="rc2"><div class="rl2"><div class="rn">Workshop Kitchen + Bar</div><div class="rv">Stunning converted industrial space — one of the most beautiful interiors in Palm Springs. Modern California menu.</div><div class="rsig">Must order: wood-fired dishes, seasonal tasting menu</div></div><div class="rr"><div class="rp">$$$</div><span class="rbadge rb-mid">Mid-range</span></div></div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Hotels · Palm Springs</div>
+      <div class="hotel-grid">
+        <div class="hc"><div><div class="hn">Motel 6 Palm Springs</div><div class="hv">Clean, affordable, has a pool</div></div><div class="hp">~$90/night</div></div>
+        <div class="hc"><div><div class="hn">Saguaro Palm Springs</div><div class="hv">Colorful mid-century modern gem, lively pool scene</div></div><div class="hp">~$160/night</div></div>
+        <div class="hc"><div><div class="hn">Parker Palm Springs</div><div class="hv">Design-forward luxury resort with stunning grounds</div></div><div class="hp">~$400+/night</div></div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Map &amp; Route</div>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?saddr=Las+Vegas,+NV&daddr=Skull+Rock+Joshua+Tree+National+Park,+CA+to:Hidden+Valley+Joshua+Tree,+CA+to:Palm+Springs,+CA&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-label">📍 Day 6 — Joshua Tree</div>
+      </div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Las+Vegas,+NV/Skull+Rock+Joshua+Tree/Hidden+Valley+Joshua+Tree/Cholla+Cactus+Garden+Joshua+Tree/Palm+Springs,+CA/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        Open full route in Google Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DAY 7 ===================== -->
+<div class="dc" id="c5" data-tog="tog(5)">
+  <button class="dh" type="button" onclick="tog(5)">
+    <div class="db2">D7</div>
+    <div class="di">
+      <div class="dd">Mar 31</div>
+      <div class="dtitle">Sequoia &amp; Kings Canyon</div>
+      <div class="dloc">Palm Springs → Sequoia → Kings Canyon → Fresno overnight</div>
+    </div>
+    <div class="chev">›</div>
+  </button>
+  <div class="dbody">
+    <div class="sec">
+      <div class="sl">Day schedule · The Sierra Nevada giants</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">6:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Leave Palm Springs north</div><div class="tl-desc">Take CA-62 north then CA-247 toward the Sierra Nevada foothills. Beautiful drive through citrus groves and high desert.</div><span class="tl-tag tt-drive">~3 hrs to Sequoia entrance</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">9:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">General Sherman Tree</div><div class="tl-desc">The largest tree on Earth by volume — 275 ft tall, 36 ft diameter at the base. Standing next to it is a genuine life moment. ½-mile paved trail from upper parking.</div><span class="tl-tag tt-nature">~45 min · Must-do</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">10:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Congress Trail loop</div><div class="tl-desc">2-mile flat loop through the densest concentration of giant sequoias in the world. Senate Group, House Group, the President Tree.</div><span class="tl-tag tt-nature">~1.5 hrs</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">12:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Lunch at Lodgepole Village</div><div class="tl-desc">The Lodgepole Market &amp; Deli has sandwiches and hot food. Eat at picnic tables surrounded by giant sequoias.</div><span class="tl-tag tt-food">~45 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">1:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Kings Canyon — Zumwalt Meadow</div><div class="tl-desc">30-min drive north. 1.5-mile loop on the Kings River floor surrounded by 8,000-ft granite walls. Deer, wildflowers, extraordinary sense of scale.</div><span class="tl-tag tt-nature">~1.5 hrs</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">3:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Drive to Fresno overnight</div><div class="tl-desc">Exit west via CA-180. Fresno is 1.5 hrs from Kings Canyon — perfectly positioned for an early Yosemite start tomorrow.</div><span class="tl-tag tt-drive">~1.5 hrs</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Dinner in Fresno</div><div class="tl-desc">Annex Kitchen and Peeve's Public House are solid — casual and satisfying after a big day in the parks.</div><span class="tl-tag tt-food">~1.5 hrs</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Hotels · Fresno</div>
+      <div class="hotel-grid">
+        <div class="hc"><div><div class="hn">Residence Inn Fresno</div><div class="hv">Clean, comfortable, full kitchen — great one-night pit stop</div></div><div class="hp">~$130/night</div></div>
+        <div class="hc"><div><div class="hn">Hotel Piccadilly Fresno</div><div class="hv">Boutique option, good restaurant, central location</div></div><div class="hp">~$110/night</div></div>
+      </div>
+    </div>
+    <div class="sec"><div class="warn">⚠ Check NPS road conditions the night before — Generals Highway can close in late March due to snow above 6,000 ft. If closed, go directly to Kings Canyon via CA-180 from Fresno (always open) and you still get the canyon and Zumwalt Meadow.</div></div>
+    <div class="sec">
+      <div class="sl">Map &amp; Route</div>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?saddr=Palm+Springs,+CA&daddr=General+Sherman+Tree+Sequoia+National+Park,+CA+to:Zumwalt+Meadow+Kings+Canyon+National+Park,+CA+to:Fresno,+CA&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Day 7 — Sequoia & Kings Canyon">
+        </iframe>
+        <div class="map-label">📍 Day 7 — Sequoia & Kings Canyon</div>
+      </div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Palm+Springs,+CA/General+Sherman+Tree+Sequoia+National+Park/Zumwalt+Meadow+Kings+Canyon/Fresno,+CA/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        Open full route in Google Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DAY 8 ===================== -->
+<div class="dc" id="c5b" data-tog="tog(55)">
+  <button class="dh" type="button" onclick="tog(55)">
+    <div class="db2">D8</div>
+    <div class="di">
+      <div class="dd">Apr 1</div>
+      <div class="dtitle">Yosemite National Park</div>
+      <div class="dloc">Fresno → Yosemite Valley → drive to Santa Barbara</div>
+    </div>
+    <div class="chev">›</div>
+  </button>
+  <div class="dbody">
+    <div class="sec">
+      <div class="sl">Day schedule · Yosemite morning + drive to coast</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">6:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Leave Fresno via CA-140</div><div class="tl-desc">The most scenic approach — follows the Merced River through a dramatic gorge into pine forest.</div><span class="tl-tag tt-drive">~1.5 hrs to Valley</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">8:00 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Tunnel View — first look at the Valley</div><div class="tl-desc">El Capitan left, Half Dome center, Bridalveil Fall right. The most famous view in American national parks. Take your time.</div><span class="tl-tag tt-nature">~20 min · Unmissable</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">8:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Yosemite Falls + Sentinel Bridge</div><div class="tl-desc">Walk to the base of North America's tallest waterfall — thundering in late March snowmelt. Then Sentinel Bridge for the Half Dome reflection in the Merced River.</div><span class="tl-tag tt-nature">~1.5 hrs</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">10:15 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">El Capitan Meadow + Bridalveil Fall</div><div class="tl-desc">Look up at the 3,000-ft sheer granite face from the meadow floor. Then walk to Bridalveil Fall — soaking spray in late March.</div><span class="tl-tag tt-nature">~1 hr</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">11:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Picnic lunch in the Valley</div><div class="tl-desc">Grab sandwiches from the Village Store and eat on the Valley floor with Half Dome above you. One of the great picnic spots on Earth.</div><span class="tl-tag tt-food">~45 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">12:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Leave Yosemite — drive to Santa Barbara</div><div class="tl-desc">Exit via CA-140, head south to I-5 then onto PCH. Long drive but stunning. Stop at El Matador Beach in Malibu on the way.</div><span class="tl-tag tt-drive">~5 hrs total</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">6:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Arrive Santa Barbara — check in</div><div class="tl-desc">Walk State Street, grab a drink on Stearns Wharf over the ocean at sunset.</div><span class="tl-tag tt-enter">~1 hr</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Romantic dinner in Santa Barbara</div><div class="tl-desc">See picks below — reserve ahead.</div><span class="tl-tag tt-food">~2 hrs</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Romantic dinner picks · Santa Barbara</div>
+      <div class="rest-grid">
+        <div class="rc2"><div class="rl2"><div class="rn">San Ysidro Ranch — Stonehouse</div><div class="rv">One of the most iconic dining rooms in California — candlelit stone cottage where JFK and Jackie honeymooned. Book well in advance.</div><div class="rsig">Must order: California seasonal tasting menu, local wines</div></div><div class="rr"><div class="rp">$$$$</div><span class="rbadge rb-spl">Splurge</span></div></div>
+        <div class="rc2"><div class="rl2"><div class="rn">The Lark</div><div class="rv">Warm, beautiful dining room in the Funk Zone — California farm-to-table. Always buzzing, always delicious.</div><div class="rsig">Must order: wood-roasted chicken, seasonal vegetable dishes</div></div><div class="rr"><div class="rp">$$$</div><span class="rbadge rb-mid">Mid-range</span></div></div>
+        <div class="rc2"><div class="rl2"><div class="rn">Blackbird SB</div><div class="rv">Innovative hyper-local cuisine in a swanky romantic ambiance — sister of Chicago's Maple &amp; Ash.</div><div class="rsig">Must order: focaccia, casarecce pasta, polenta</div></div><div class="rr"><div class="rp">$$$</div><span class="rbadge rb-mid">Mid-range</span></div></div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Hotels · Santa Barbara</div>
+      <div class="hotel-grid">
+        <div class="hc"><div><div class="hn">Hotel Indigo Santa Barbara</div><div class="hv">Boutique, walkable to State Street restaurants</div></div><div class="hp">~$180/night</div></div>
+        <div class="hc"><div><div class="hn">Kimpton Canary Hotel</div><div class="hv">Rooftop pool with mountain views, Spanish Colonial style</div></div><div class="hp">~$280/night</div></div>
+        <div class="hc"><div><div class="hn">Belmond El Encanto</div><div class="hv">Hillside resort, ocean views, world-class spa</div></div><div class="hp">~$600+/night</div></div>
+      </div>
+    </div>
+    <div class="sec"><div class="warn">⚠ Yosemite requires a timed entry reservation (Mar–Oct) — book at recreation.gov when your dates are confirmed. They sell out weeks ahead. Also book Santa Barbara dinner before leaving Fresno in the morning.</div></div>
+    <div class="sec">
+      <div class="sl">Map &amp; Route</div>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?saddr=Fresno,+CA&daddr=Tunnel+View+Yosemite+National+Park,+CA+to:Yosemite+Falls+Yosemite,+CA+to:Bridalveil+Fall+Yosemite,+CA+to:Mariposa,+CA&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-label">📍 Day 8 — Yosemite</div>
+      </div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Fresno,+CA/Tunnel+View+Yosemite+National+Park/Sentinel+Bridge+Yosemite+Valley/Bridalveil+Fall+Yosemite/Mariposa,+CA/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        Open full route in Google Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DAY 9 ===================== -->
+<div class="dc" id="c6" data-tog="tog(6)">
+  <button class="dh" type="button" onclick="tog(6)">
+    <div class="db2">D9</div>
+    <div class="di">
+      <div class="dd">Apr 2</div>
+      <div class="dtitle">Highway 1 — Big Sur</div>
+      <div class="dloc">Santa Barbara → Pismo → Elephant Seals → Bixby → McWay Falls → Monterey</div>
+    </div>
+    <div class="chev">›</div>
+  </button>
+  <div class="dbody">
+    <div class="sec">
+      <div class="sl">Day schedule · Leave very early — this is a big drive day</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Leave Santa Barbara north on Highway 101</div><div class="tl-desc">Grab coffee and pastry for the road. You have a long, gorgeous day ahead.</div><span class="tl-tag tt-drive">Head north on 101</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">9:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Pismo Beach — walk the pier</div><div class="tl-desc">Classic California beach town. Quick stop for photos on the pier and a coffee. Beautiful dunes nearby.</div><span class="tl-tag tt-nature">~30 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">11:00 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Elephant Seal Vista Point</div><div class="tl-desc">Hundreds of massive elephant seals lounging on the beach below. Free to watch. Absolutely wild — don't miss this. Best viewed mid-morning.</div><span class="tl-tag tt-nature">~30 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">12:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Lunch in San Simeon or Cambria</div><div class="tl-desc">Robin's Restaurant in Cambria is excellent — eclectic global menu, charming garden patio. Or grab a sandwich from a local deli.</div><span class="tl-tag tt-food">~1 hr</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">1:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Switch to Highway 1 — Big Sur begins</div><div class="tl-desc">Now the magic starts. One of the most dramatic coastal drives in the world. Go slow — there's no rush and the views demand it.</div><span class="tl-tag tt-drive">Drive slowly and savor</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">2:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">McWay Falls — Julia Pfeiffer Burns State Park</div><div class="tl-desc">The iconic 80-ft waterfall that drops directly onto a secluded beach. Short ½-mile trail to the overlook. One of the most photographed spots in California.</div><span class="tl-tag tt-nature">~45 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">4:00 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Bixby Creek Bridge</div><div class="tl-desc">Pull over at the iconic overlook — one of the most photographed bridges in the world. Dramatic arch over a deep coastal gorge. Stunning at any time of day.</div><span class="tl-tag tt-nature">~20 min</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">5:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Arrive Monterey — check in</div><div class="tl-desc">Drop bags, take a short walk along Cannery Row to decompress from the long day.</div><span class="tl-tag tt-rest">Check-in</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Romantic dinner in Monterey or Carmel</div><div class="tl-desc">After a big drive day, let someone else do the cooking. Reserve in advance.</div><span class="tl-tag tt-food">~2 hrs</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Romantic dinner picks · Monterey / Carmel</div>
+      <div class="rest-grid">
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Aubergine at L'Auberge Carmel</div>
+            <div class="rv">Forbes Five-Star, Food & Wine "Best New Chef" — intimate candlelit dining room in the heart of Carmel. Tasting menu with extraordinary local ingredients like abalone and Perigord truffles. The pinnacle of the region.</div>
+            <div class="rsig">Must order: the full tasting menu with wine pairing</div>
+          </div>
+          <div class="rr"><div class="rp">$$$$</div><span class="rbadge rb-spl">Splurge</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Pacific's Edge — Hyatt Carmel Highlands</div>
+            <div class="rv">Perched on the craggy bluffs of Carmel Highlands — spectacular views of the California coastline. Stunning setting for a romantic dinner at sunset.</div>
+            <div class="rsig">Must order: local seafood, California seasonal menu, extensive wine cellar</div>
+          </div>
+          <div class="rr"><div class="rp">$$$$</div><span class="rbadge rb-spl">Splurge</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">Casanova Restaurant · Carmel-by-the-Sea</div>
+            <div class="rv">Charming French countryside atmosphere — low lighting, fresh flowers, fireplace, candlelit tables. Locals call it the most romantic room in Carmel. Wine cave on premises.</div>
+            <div class="rsig">Must order: French classics, duck, local seafood; share a bottle from the wine cave</div>
+          </div>
+          <div class="rr"><div class="rp">$$$</div><span class="rbadge rb-mid">Mid-range</span></div>
+        </div>
+        <div class="rc2">
+          <div class="rl2">
+            <div class="rn">The Sardine Factory · Monterey</div>
+            <div class="rv">A Monterey institution — the glass-domed Conservatory Room is extraordinarily romantic. Abalone bisque is legendary. Perfect for a special anniversary-style dinner.</div>
+            <div class="rsig">Must order: abalone bisque, grilled sand dabs, the prix fixe menu</div>
+          </div>
+          <div class="rr"><div class="rp">$$$</div><span class="rbadge rb-mid">Mid-range</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Hotels · Monterey or Carmel</div>
+      <div class="hotel-grid">
+        <div class="hc"><div><div class="hn">Hotel Pacific</div><div class="hv">Cozy courtyard hotel, walkable to Fisherman's Wharf</div></div><div class="hp">~$160/night</div></div>
+        <div class="hc"><div><div class="hn">Monterey Bay Inn</div><div class="hv">Right on the waterfront — sea otters visible from some rooms</div></div><div class="hp">~$190/night</div></div>
+        <div class="hc"><div><div class="hn">Carmel Valley Ranch</div><div class="hv">Stunning resort with vineyards and mountain views</div></div><div class="hp">~$450+/night</div></div>
+      </div>
+    </div>
+    <div class="sec"><div class="warn">⚠ This is a long day — 8+ hrs total including stops. Leave Santa Barbara no later than 7:30 AM. If you want to enjoy Big Sur without rushing, consider overnighting in San Simeon or Cambria midway and pushing Monterey arrival to morning of Day 9.</div></div>
+    <div class="sec">
+      <div class="sl">Map &amp; Route</div>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?saddr=Santa+Barbara,+CA&daddr=Pismo+Beach,+CA+to:Elephant+Seal+Vista+Point+San+Simeon,+CA+to:McWay+Falls+Big+Sur,+CA+to:Bixby+Creek+Bridge+Big+Sur,+CA+to:Monterey,+CA&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-label">📍 Day 9 — Big Sur</div>
+      </div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Santa+Barbara,+CA/Pismo+Beach,+CA/Elephant+Seal+Vista+Point+San+Simeon/McWay+Falls+Big+Sur/Bixby+Creek+Bridge/Monterey,+CA/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        Open full route in Google Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DAY 10 ===================== -->
+<div class="dc" id="c7" data-tog="tog(7)">
+  <button class="dh" type="button" onclick="tog(7)">
+    <div class="db2">D10</div>
+    <div class="di">
+      <div class="dd">Apr 3</div>
+      <div class="dtitle">Monterey + Carmel → San Francisco → Fly Home</div>
+      <div class="dloc">Point Lobos · 17-Mile Drive · Carmel · SFO</div>
+    </div>
+    <div class="chev">›</div>
+  </button>
+  <div class="dbody">
+    <div class="sec">
+      <div class="sl">Day schedule · Final morning + departure</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">7:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Point Lobos State Reserve</div><div class="tl-desc">Crown jewel of California State Parks — sea otters, harbor seals, stunning coastal trails. Arrive early before parking fills. The most beautiful coastal park in California.</div><span class="tl-tag tt-nature">~1.5 hrs · $10 parking</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">9:30 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">17-Mile Drive through Pebble Beach</div><div class="tl-desc">The Lone Cypress, Ghost Tree, Seal Rock — a stunning private toll road through one of the most scenic coastlines in the world.</div><span class="tl-tag tt-nature">~1 hr · ~$11 toll</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">11:00 AM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Carmel Beach + brunch</div><div class="tl-desc">Walk Carmel Beach — white sand and turquoise water. Brunch at Patisserie Boissiere — French country food in a flower-filled room.</div><span class="tl-tag tt-food">~1 hr</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">12:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Drive to SFO</div><div class="tl-desc">Head north on Highway 1 through Santa Cruz then onto 101. Beautiful coastal drive to the airport. Return rental car at SFO.</div><span class="tl-tag tt-drive">~2.5 hrs · one-way rental return</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-time">3:30 PM</div><div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div></div>
+          <div class="tl-right"><div class="tl-title">Return car at SFO + check in for flight</div><div class="tl-desc">Enterprise, Hertz and Alamo all have on-site SFO return. Allow 1.5 hrs before your flight for return, check-in and security.</div><span class="tl-tag tt-drive">Fly home!</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sl">Map &amp; Route</div>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?saddr=Monterey,+CA&daddr=Point+Lobos+State+Natural+Reserve,+CA+to:Carmel-by-the-Sea,+CA+to:San+Francisco+International+Airport,+CA&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Day 10 — Monterey → SFO">
+        </iframe>
+        <div class="map-label">📍 Day 10 — Monterey → SFO</div>
+      </div>
+      <a class="map-btn" href="https://www.google.com/maps/dir/Monterey,+CA/Point+Lobos+State+Natural+Reserve/Carmel-by-the-Sea,+CA/San+Francisco+International+Airport/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        Open full route in Google Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="overview-map-section" style="margin-top:1.5rem;">
+  <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--text);margin-bottom:.4rem;font-weight:400;">Full Trip Overview</div>
+  <div style="font-size:12px;color:var(--text2);margin-bottom:.75rem;">All 10 days · tap any marker or line for day details</div>
+  <div id="map-legend" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;"></div>
+  <div style="border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 4px 20px rgba(0,0,0,.08);">
+    <div id="trip-overview-map" style="height:480px;width:100%;background:#f0ede8;"></div>
+  </div>
+  <p style="font-size:11px;color:var(--text3);margin-top:8px;text-align:center;">Pinch to zoom · tap markers for details · ★ = overnight stop</p>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+var DC={
+  1: {c:'#E8604A',n:'Day 1 · Los Angeles',d:'Mar 25'},
+  2: {c:'#D4943A',n:'Day 2 · Catalina Island',d:'Mar 26'},
+  3: {c:'#9B59B6',n:'Day 3 · Drive to Vegas',d:'Mar 27'},
+  45:{c:'#E91E8C',n:'Days 4-5 · Las Vegas',d:'Mar 28-29'},
+  6: {c:'#C0392B',n:'Day 6 · Joshua Tree',d:'Mar 30'},
+  7: {c:'#27AE60',n:'Day 7 · Sequoia & Kings Canyon',d:'Mar 31'},
+  8: {c:'#2980B9',n:'Day 8 · Yosemite',d:'Apr 1'},
+  9: {c:'#16A085',n:'Day 9 · Big Sur',d:'Apr 2'},
+  10:{c:'#8E44AD',n:'Day 10 · Monterey→SFO',d:'Apr 3'}
+};
+var S=[
+  [33.9425,-118.408,'LAX — Arrive',1,'major'],
+  [34.0736,-118.4004,'Rodeo Drive · Beverly Hills',1,'stop'],
+  [33.985,-118.469,'Venice Beach',1,'stop'],
+  [34.008,-118.498,'Santa Monica Pier',1,'stop'],
+  [34.028,-118.780,'Malibu',1,'overnight'],
+  [33.745,-118.198,'Long Beach Ferry Terminal',2,'stop'],
+  [33.347,-118.327,'Catalina Island · Avalon',2,'major'],
+  [34.420,-119.698,'Santa Barbara',2,'overnight'],
+  [35.888,-114.968,'Seven Magic Mountains',3,'stop'],
+  [35.264,-116.071,'Baker — lunch',3,'stop'],
+  [36.114,-115.172,'Las Vegas Strip',3,'overnight'],
+  [36.486,-114.525,'Valley of Fire',45,'stop'],
+  [36.114,-115.172,'Vegas Strip · 2 nights',45,'major'],
+  [33.994,-115.926,'Skull Rock',6,'stop'],
+  [34.010,-116.165,'Hidden Valley Trail',6,'stop'],
+  [33.925,-115.922,'Cholla Cactus Garden',6,'stop'],
+  [33.830,-116.545,'Palm Springs',6,'overnight'],
+  [36.582,-118.751,'General Sherman Tree',7,'major'],
+  [36.793,-118.573,'Zumwalt Meadow · Kings Canyon',7,'stop'],
+  [36.737,-119.787,'Fresno · Overnight',7,'overnight'],
+  [37.716,-119.676,'Tunnel View · Yosemite',8,'major'],
+  [37.741,-119.594,'Sentinel Bridge · Half Dome',8,'stop'],
+  [37.716,-119.651,'Bridalveil Fall',8,'stop'],
+  [37.484,-119.966,'Mariposa · Overnight',8,'overnight'],
+  [34.420,-119.698,'Leave Santa Barbara',9,'stop'],
+  [35.142,-120.641,'Pismo Beach',9,'stop'],
+  [35.665,-121.254,'Elephant Seal Vista',9,'stop'],
+  [36.158,-121.672,'McWay Falls',9,'major'],
+  [36.371,-121.902,'Bixby Creek Bridge',9,'stop'],
+  [36.600,-121.894,'Monterey · Stay',9,'overnight'],
+  [36.516,-121.944,'Point Lobos Reserve',10,'stop'],
+  [36.555,-121.923,'Carmel-by-the-Sea',10,'stop'],
+  [37.619,-122.374,'SFO — Fly Home',10,'major']
+];
+var R={
+  1: [[33.9425,-118.408],[34.0736,-118.4004],[33.985,-118.469],[34.008,-118.498],[34.028,-118.780]],
+  2: [[34.028,-118.780],[33.745,-118.198],[33.347,-118.327],[34.420,-119.698]],
+  3: [[34.420,-119.698],[35.264,-116.071],[35.888,-114.968],[36.114,-115.172]],
+  45:[[36.114,-115.172],[36.486,-114.525],[36.114,-115.172]],
+  6: [[36.114,-115.172],[33.994,-115.926],[34.010,-116.165],[33.925,-115.922],[33.830,-116.545]],
+  7: [[33.830,-116.545],[36.582,-118.751],[36.793,-118.573],[36.737,-119.787]],
+  8: [[36.737,-119.787],[37.716,-119.676],[37.741,-119.594],[37.716,-119.651],[37.484,-119.966]],
+  9: [[34.420,-119.698],[35.142,-120.641],[35.665,-121.254],[36.158,-121.672],[36.371,-121.902],[36.600,-121.894]],
+  10:[[36.600,-121.894],[36.516,-121.944],[36.555,-121.923],[37.619,-122.374]]
+};
+function init(){
+  var el=document.getElementById('trip-overview-map');
+  if(!el||typeof L==='undefined'){setTimeout(init,400);return;}
+  var map=L.map('trip-overview-map',{center:[35.8,-118.8],zoom:6,zoomControl:true,scrollWheelZoom:true});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
+    attribution:'© OSM © CARTO',subdomains:'abcd',maxZoom:19
+  }).addTo(map);
+  Object.keys(R).forEach(function(d){
+    var dc=DC[parseInt(d)];
+    var dash=(d==3||d==7||d==8)?'8,5':null;
+    L.polyline(R[d],{color:dc.c,weight:3.5,opacity:.9,dashArray:dash,lineJoin:'round',lineCap:'round'})
+      .addTo(map)
+      .bindPopup('<b style="color:'+dc.c+'">'+dc.n+'</b><br><span style="font-size:11px;color:#888">'+dc.d+'</span>');
+  });
+  S.forEach(function(s){
+    var dc=DC[s[3]],sz,ico;
+    if(s[4]==='major'){sz=14;ico='<div style="width:14px;height:14px;border-radius:50%;background:'+dc.c+';border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,.35);"></div>';}
+    else if(s[4]==='overnight'){sz=18;ico='<div style="width:18px;height:18px;border-radius:50%;background:'+dc.c+';border:3px solid white;box-shadow:0 2px 10px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-size:9px;color:white;font-weight:700;">★</div>';}
+    else{sz=9;ico='<div style="width:9px;height:9px;border-radius:50%;background:'+dc.c+';border:2px solid white;box-shadow:0 1px 5px rgba(0,0,0,.25);opacity:.9;"></div>';}
+    var icon=L.divIcon({html:ico,className:'',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2],popupAnchor:[0,-sz/2-2]});
+    L.marker([s[0],s[1]],{icon:icon}).addTo(map)
+      .bindPopup('<div style="font-family:sans-serif;min-width:150px;"><div style="font-weight:600;font-size:13px;color:#1a1614;margin-bottom:2px;">'+s[2]+'</div><div style="font-size:11px;font-weight:500;color:'+dc.c+'">'+dc.n+'</div><div style="font-size:10px;color:#999;margin-top:1px;">'+dc.d+'</div></div>',{maxWidth:220});
+  });
+  var lg=document.getElementById('map-legend');
+  if(lg){Object.keys(DC).forEach(function(d){var dc=DC[d];var c=document.createElement('div');c.style.cssText='display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:500;border:1px solid;';c.style.background=dc.c+'18';c.style.borderColor=dc.c+'50';c.style.color=dc.c;c.innerHTML='<span style="width:12px;height:3px;border-radius:2px;background:'+dc.c+';display:inline-block;flex-shrink:0;"></span>'+dc.n;lg.appendChild(c);});}
+}
+if(typeof L!=='undefined'){init();}else{document.querySelector('script[src*="leaflet"]').onload=init;setTimeout(init,1800);}
+})();
+</script>
+
+<!-- BUDGET -->
+<div class="budrow">
+  <div class="bui"><div class="bun">$400</div><div class="bul">Flights</div></div>
+  <div class="bui"><div class="bun">$550</div><div class="bul">Car rental</div></div>
+  <div class="bui"><div class="bun">$140</div><div class="bul">Gas</div></div>
+  <div class="bui"><div class="bun">$1,450</div><div class="bul">Hotels</div></div>
+  <div class="bui"><div class="bun">$380</div><div class="bul">Restaurants</div></div>
+  <div class="bui"><div class="bun">$220</div><div class="bul">Activities</div></div>
+  <div class="bui total-cell"><div class="bun tot">~$3,140</div><div class="bul">Total estimated cost</div></div>
+</div>
+
+<!-- GEMS -->
+<div class="gems">
+  <div class="gems-t">Hidden gems — by destination</div>
+
+  <div style="margin-bottom:.5rem;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--hint);">Los Angeles · D1</div>
+  <div class="gems-g" style="margin-bottom:1rem;">
+    <div class="gem"><div class="gem-n">Watts Towers</div><div class="gem-d">Mosaic folk art towers built over 33 years by one man — completely unknown to most tourists</div></div>
+    <div class="gem"><div class="gem-n">The Last Bookstore</div><div class="gem-d">Stunning multi-level bookstore in a former bank vault — a true LA secret</div></div>
+    <div class="gem"><div class="gem-n">Abbot Kinney Blvd</div><div class="gem-d">Venice's coolest street — indie coffee, galleries, food trucks. Walk it after the canals</div></div>
+    <div class="gem"><div class="gem-n">The Polo Lounge · Beverly Hills Hotel</div><div class="gem-d">Old Hollywood glamour — Marilyn Monroe, Frank Sinatra, everyone who was anyone drank here. Perfect for one cocktail</div></div>
+  </div>
+
+  <div style="margin-bottom:.5rem;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--hint);">Catalina Island · D2</div>
+  <div class="gems-g" style="margin-bottom:1rem;">
+    <div class="gem"><div class="gem-n">Lover's Cove Marine Reserve</div><div class="gem-d">Best snorkelling spot on the island — tame garibaldi fish swim right up to you</div></div>
+    <div class="gem"><div class="gem-n">Bison herd spotting</div><div class="gem-d">200+ wild bison roam the interior — left behind from a 1924 film shoot and never removed</div></div>
+    <div class="gem"><div class="gem-n">Two Harbors</div><div class="gem-d">The island's quieter second village — only accessible by boat or a 14-mile hike from Avalon</div></div>
+    <div class="gem"><div class="gem-n">Casino Ballroom</div><div class="gem-d">The 1929 Art Deco landmark where big bands played — free to walk around outside, tours available</div></div>
+  </div>
+
+  <div style="margin-bottom:.5rem;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--hint);">Las Vegas · D3–5</div>
+  <div class="gems-g" style="margin-bottom:1rem;">
+    <div class="gem"><div class="gem-n">Neon Museum</div><div class="gem-d">Graveyard of iconic Vegas signs — surreal and beautiful, especially the night tour</div></div>
+    <div class="gem"><div class="gem-n">Valley of Fire</div><div class="gem-d">45 min from the Strip — ancient red Aztec sandstone, petroglyphs, otherworldly at sunrise</div></div>
+    <div class="gem"><div class="gem-n">Container Park</div><div class="gem-d">Downtown indie shopping village built from shipping containers — totally different Vegas vibe</div></div>
+    <div class="gem"><div class="gem-n">Pinball Hall of Fame</div><div class="gem-d">200+ playable vintage machines — hilariously fun and completely free to browse</div></div>
+  </div>
+
+  <div style="margin-bottom:.5rem;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--hint);">Joshua Tree · D6</div>
+  <div class="gems-g" style="margin-bottom:1rem;">
+    <div class="gem"><div class="gem-n">Arch Rock</div><div class="gem-d">Beautiful natural granite arch — short easy trail, far fewer visitors than Skull Rock</div></div>
+    <div class="gem"><div class="gem-n">Fortynine Palms Oasis</div><div class="gem-d">Hidden palm oasis on a 3-mile roundtrip hike — feels completely secret</div></div>
+    <div class="gem"><div class="gem-n">Integratron</div><div class="gem-d">Weird acoustic dome in the desert — sound bath sessions are genuinely trippy</div></div>
+    <div class="gem"><div class="gem-n">Cholla Garden at dusk</div><div class="gem-d">The jumping cactus glows gold in the last 30 mins of sunlight — completely magical</div></div>
+  </div>
+
+  <div style="margin-bottom:.5rem;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--hint);">Sequoia &amp; Kings Canyon · D7</div>
+  <div class="gems-g" style="margin-bottom:1rem;">
+    <div class="gem"><div class="gem-n">Tunnel Log</div><div class="gem-d">A fallen sequoia with a tunnel carved through it — you drive through an 8-ft wide log</div></div>
+    <div class="gem"><div class="gem-n">Moro Rock</div><div class="gem-d">Granite dome with 360° Sierra Nevada views — 300-step staircase, totally worth it</div></div>
+    <div class="gem"><div class="gem-n">Kings Canyon Overlook</div><div class="gem-d">One of the deepest canyons in North America — deeper than the Grand Canyon at its lowest</div></div>
+    <div class="gem"><div class="gem-n">Muir Grove</div><div class="gem-d">Off-the-beaten-path sequoia grove — 4-mile roundtrip trail where you'll have the giants to yourself</div></div>
+  </div>
+
+  <div style="margin-bottom:.5rem;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--hint);">Yosemite · D8</div>
+  <div class="gems-g" style="margin-bottom:1rem;">
+    <div class="gem"><div class="gem-n">Cook's Meadow loop</div><div class="gem-d">The quietest Valley walk — best Half Dome reflection, almost no one goes here vs Mirror Lake</div></div>
+    <div class="gem"><div class="gem-n">Valley View pullout</div><div class="gem-d">Hidden roadside stop with the best El Capitan + Merced River framing in the whole park</div></div>
+    <div class="gem"><div class="gem-n">Columbia Rock</div><div class="gem-d">Only 1 mile up the Yosemite Falls trail — incredible valley views with a fraction of the crowds</div></div>
+    <div class="gem"><div class="gem-n">Fern Spring</div><div class="gem-d">Tiny roadside spring where crystal water flows year-round — locals fill bottles here</div></div>
+  </div>
+
+  <div style="margin-bottom:.5rem;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--hint);">Big Sur · D9</div>
+  <div class="gems-g" style="margin-bottom:1rem;">
+    <div class="gem"><div class="gem-n">Pfeiffer Beach</div><div class="gem-d">Purple sand from manganese garnet — the unmarked turnoff on Sycamore Canyon Rd keeps it quiet</div></div>
+    <div class="gem"><div class="gem-n">Ragged Point</div><div class="gem-d">First dramatic Big Sur viewpoint heading south — small café, cliffside trail, stunning sea views</div></div>
+    <div class="gem"><div class="gem-n">Sierra Mar at Post Ranch</div><div class="gem-d">Most dramatic cliffside restaurant in California — worth the splurge just for lunch with the view</div></div>
+    <div class="gem"><div class="gem-n">Sand Dollar Beach</div><div class="gem-d">Longest sandy beach in Big Sur — almost no one visits, dramatic cliffs, stunning at low tide</div></div>
+  </div>
+
+  <div style="margin-bottom:.5rem;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--hint);">Monterey &amp; Carmel · D10</div>
+  <div class="gems-g">
+    <div class="gem"><div class="gem-n">Point Lobos Whaler's Cove</div><div class="gem-d">The most biodiverse marine reserve in California — sea otters floating on their backs everywhere</div></div>
+    <div class="gem"><div class="gem-n">Carmel Mission</div><div class="gem-d">Beautiful 1770 Spanish mission with a stunning garden courtyard — free and almost always empty</div></div>
+    <div class="gem"><div class="gem-n">Lovers Point Beach</div><div class="gem-d">Pacific Grove's secret beach — calm water, sea otters, monarch butterfly sanctuary nearby</div></div>
+    <div class="gem"><div class="gem-n">Tor House</div><div class="gem-d">Poet Robinson Jeffers built this stone tower by hand — tours run Sat mornings, hauntingly beautiful</div></div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<script>
+var allCards = ['c0','c1','c2','c3','c4','c5','c5b','c6','c7'];
+var togCard  = {0:'c0',1:'c1',2:'c2',3:'c3',4:'c4',5:'c5',55:'c5b',6:'c6',7:'c7'};
+var togStop  = {0:0,1:1,2:2,3:2,4:3,5:4,55:5,6:7,7:8};
+var stopCard = {0:'c0',1:'c1',2:'c2',3:'c2',4:'c4',5:'c5',6:'c5b',7:'c6',8:'c7'};
+
+function tog(i) {
+  var id = togCard[i]; if (!id) return;
+  var card = document.getElementById(id); if (!card) return;
+  var was = card.classList.contains('active');
+  allCards.forEach(function(cid){ var el=document.getElementById(cid); if(el) el.classList.remove('active'); });
+  if (!was) {
+    card.classList.add('active');
+    setStop(togStop[i]);
+    try { card.scrollIntoView({behavior:'smooth',block:'nearest'}); } catch(e){ card.scrollIntoView(false); }
+  } else { clrStops(); }
+}
+
+function act(si) {
+  var id = stopCard[si]; if (!id) return;
+  allCards.forEach(function(cid){ var el=document.getElementById(cid); if(el) el.classList.remove('active'); });
+  var card = document.getElementById(id);
+  if (card) { card.classList.add('active'); try { card.scrollIntoView({behavior:'smooth',block:'nearest'}); } catch(e){ card.scrollIntoView(false); } }
+  setStop(si);
+}
+
+function setStop(si) {
+  document.querySelectorAll('.rs').forEach(function(s,i){ s.classList.toggle('active', i===si); });
+}
+function clrStops() {
+  document.querySelectorAll('.rs').forEach(function(s){ s.classList.remove('active'); });
+}
+</script>
+</body>
+</html>
