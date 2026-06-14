@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Bell,
+  Check,
   ChevronDown,
-  Circle,
   Settings,
   UserRound,
 } from "lucide-react";
@@ -24,7 +24,9 @@ type WorkbenchShellProps = {
 export function WorkbenchShell({ onLogout }: WorkbenchShellProps) {
   const [activeModule, setActiveModule] = useState("home");
   const [brand, setBrand] = useState(brands[0]);
-  const [persona, setPersona] = useState(personas[0]);
+  const [persona, setPersona] = useState(
+    personas.find((item) => item.label === "Director of Marketing") ?? personas[0],
+  );
 
   return (
     <div className="flex min-h-screen flex-col bg-[var(--jnj-bg)]">
@@ -78,38 +80,16 @@ export function WorkbenchShell({ onLogout }: WorkbenchShellProps) {
               <Settings className="h-3.5 w-3.5" />
             </button>
 
-            <label className="hidden items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm sm:flex">
-              <Circle className="h-2.5 w-2.5 fill-purple-600 text-purple-600" />
-              <select
-                className="max-w-28 appearance-none bg-transparent pr-1 outline-none"
-                value={brand}
-                onChange={(event) => setBrand(event.target.value)}
-              >
-                {brands.map((item) => (
-                  <option key={item}>{item}</option>
-                ))}
-              </select>
-              <ChevronDown className="h-3 w-3 text-gray-400" />
-            </label>
+            <BrandDropdown value={brand} onChange={setBrand} />
 
-            <label className="hidden items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm sm:flex">
-              <UserRound className="h-3.5 w-3.5 text-gray-400" />
-              <select
-                className="appearance-none bg-transparent pr-1 outline-none"
-                value={persona.label}
-                onChange={(event) => {
-                  const nextPersona =
-                    personas.find((item) => item.label === event.target.value) ??
-                    personas[0];
-                  setPersona(nextPersona);
-                }}
-              >
-                {personas.map((item) => (
-                  <option key={item.label}>{item.label}</option>
-                ))}
-              </select>
-              <ChevronDown className="h-3 w-3 text-gray-400" />
-            </label>
+            <PersonaDropdown
+              value={persona.label}
+              onChange={(value) => {
+                const nextPersona =
+                  personas.find((item) => item.label === value) ?? personas[0];
+                setPersona(nextPersona);
+              }}
+            />
 
             <button
               className="relative hidden h-8 w-8 items-center justify-center rounded-lg text-gray-500 transition hover:bg-gray-100 md:inline-flex"
@@ -180,4 +160,196 @@ export function WorkbenchShell({ onLogout }: WorkbenchShellProps) {
       </main>
     </div>
   );
+}
+
+const brandDropdownOptions = [
+  { label: "RYBREVANT", dot: "bg-[var(--jnj-brand-primary)]" },
+  { label: "LAZCLUSE", dot: "bg-blue-500" },
+  { label: "ERLEADA", dot: "bg-gray-900" },
+  { label: "DARZALEX", dot: "bg-purple-600" },
+  { label: "INLEXZO", dot: "bg-emerald-600" },
+  { label: "BALVERSA", dot: "bg-gray-900" },
+];
+
+const personaGroups = [
+  {
+    label: "Marketing",
+    options: [
+      "Product Manager",
+      "Product Director",
+      "Director of Marketing",
+      "VP of Marketing",
+    ],
+  },
+  {
+    label: "SIA",
+    options: ["SIA Analyst", "SIA Lead"],
+  },
+  {
+    label: "Leadership",
+    options: ["NALT"],
+  },
+];
+
+function BrandDropdown({
+  onChange,
+  value,
+}: {
+  onChange: (value: string) => void;
+  value: string;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const selected =
+    brandDropdownOptions.find((option) => option.label === value) ??
+    brandDropdownOptions[3];
+
+  useCloseOnOutsideClick(menuRef, () => setIsOpen(false));
+
+  return (
+    <div className="relative hidden sm:block" ref={menuRef}>
+      <button
+        className={cn(
+          "inline-flex h-8 items-center gap-2 rounded-lg border bg-white px-3 text-xs font-semibold shadow-sm transition",
+          isOpen
+            ? "border-blue-300 text-blue-600 ring-2 ring-blue-100"
+            : "border-gray-200 text-gray-700 hover:bg-gray-50",
+        )}
+        type="button"
+        onClick={() => setIsOpen((current) => !current)}
+      >
+        <span className={cn("h-2 w-2 rounded-full", selected.dot)} />
+        {value}
+        <ChevronDown
+          className={cn(
+            "h-3 w-3 text-gray-400 transition-transform",
+            isOpen && "rotate-180",
+          )}
+        />
+      </button>
+
+      {isOpen ? (
+        <div className="absolute right-0 top-[calc(100%+6px)] z-50 w-[240px] rounded-xl border border-gray-200 bg-white p-2 shadow-[0_14px_30px_rgba(15,23,42,0.16)]">
+          <div className="whitespace-nowrap px-2 pb-1 pt-1 text-[9px] font-bold uppercase tracking-[0.12em] text-gray-400">
+            ONC Portfolio - Select Brand
+          </div>
+          <div className="space-y-0.5">
+            {brandDropdownOptions.map((option) => {
+              const isSelected = option.label === value;
+              return (
+                <button
+                  className={cn(
+                    "flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left text-xs font-semibold transition",
+                    isSelected
+                      ? "bg-purple-50 text-purple-700"
+                      : "text-gray-700 hover:bg-gray-50",
+                  )}
+                  key={option.label}
+                  type="button"
+                  onClick={() => {
+                    onChange(option.label);
+                    setIsOpen(false);
+                  }}
+                >
+                  <span className={cn("h-1.5 w-1.5 rounded-full", option.dot)} />
+                  <span className="flex-1">{option.label}</span>
+                  {isSelected ? <Check className="h-3.5 w-3.5" /> : null}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function PersonaDropdown({
+  onChange,
+  value,
+}: {
+  onChange: (value: string) => void;
+  value: string;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const selected = personas.find((item) => item.label === value) ?? personas[0];
+
+  useCloseOnOutsideClick(menuRef, () => setIsOpen(false));
+
+  return (
+    <div className="relative hidden sm:block" ref={menuRef}>
+      <button
+        className={cn(
+          "inline-flex h-8 items-center gap-2 rounded-lg border bg-white px-3 text-xs font-semibold shadow-sm transition",
+          isOpen
+            ? "border-blue-300 text-blue-600 ring-2 ring-blue-100"
+            : "border-gray-200 text-gray-700 hover:bg-gray-50",
+        )}
+        type="button"
+        onClick={() => setIsOpen((current) => !current)}
+      >
+        <UserRound className="h-3.5 w-3.5 text-blue-500" />
+        {selected.short}
+        <ChevronDown
+          className={cn(
+            "h-3 w-3 text-gray-400 transition-transform",
+            isOpen && "rotate-180",
+          )}
+        />
+      </button>
+
+      {isOpen ? (
+        <div className="absolute right-0 top-[calc(100%+6px)] z-50 w-[224px] rounded-xl border border-gray-200 bg-white p-2 shadow-[0_14px_30px_rgba(15,23,42,0.16)]">
+          {personaGroups.map((group) => (
+            <div className="pb-1" key={group.label}>
+              <div className="px-2 pb-1 pt-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-gray-400">
+                {group.label}
+              </div>
+              <div className="space-y-0.5">
+                {group.options.map((option) => {
+                  const isSelected = option === value;
+                  return (
+                    <button
+                      className={cn(
+                        "flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left text-xs font-semibold transition",
+                        isSelected
+                          ? "bg-blue-50 text-blue-600"
+                          : "text-gray-700 hover:bg-gray-50",
+                      )}
+                      key={option}
+                      type="button"
+                      onClick={() => {
+                        onChange(option);
+                        setIsOpen(false);
+                      }}
+                    >
+                      <span className="flex-1">{option}</span>
+                      {isSelected ? <Check className="h-3.5 w-3.5" /> : null}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function useCloseOnOutsideClick(
+  ref: React.RefObject<HTMLElement | null>,
+  onClose: () => void,
+) {
+  useEffect(() => {
+    function handlePointerDown(event: MouseEvent) {
+      if (!ref.current?.contains(event.target as Node)) {
+        onClose();
+      }
+    }
+
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [onClose, ref]);
 }

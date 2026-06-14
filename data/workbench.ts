@@ -90,8 +90,11 @@ export const modules: NavModule[] = [
 export const brands = ["DARZALEX", "RYBREVANT", "ERLEADA", "INLEXZO"];
 
 export const personas = [
-  { label: "Director of Marketing", short: "DOM" },
   { label: "Product Manager", short: "PM" },
+  { label: "Product Director", short: "Director" },
+  { label: "Director of Marketing", short: "DOM" },
+  { label: "VP of Marketing", short: "VP" },
+  { label: "SIA Analyst", short: "SIA Analyst" },
   { label: "SIA Lead", short: "SIA" },
   { label: "NALT", short: "NALT" },
 ];
