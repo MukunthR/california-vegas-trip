@@ -11,8 +11,12 @@ export function AinfWorkbench() {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    setIsAuthenticated(Boolean(window.localStorage.getItem(STORAGE_KEY)));
-    setIsReady(true);
+    const timer = window.setTimeout(() => {
+      setIsAuthenticated(Boolean(window.localStorage.getItem(STORAGE_KEY)));
+      setIsReady(true);
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   function handleLogin(email: string) {

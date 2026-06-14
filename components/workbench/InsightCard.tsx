@@ -142,12 +142,6 @@ function MiniChart({ insight }: InsightCardProps) {
         viewBox={`0 0 ${width} ${height}`}
         aria-hidden="true"
       >
-        <defs>
-          <linearGradient id={`area-${insight.label}`} x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor={insight.chartColor} stopOpacity="0.18" />
-            <stop offset="100%" stopColor={insight.chartColor} stopOpacity="0.02" />
-          </linearGradient>
-        </defs>
         {[25, 50, 75].map((tick) => (
           <line
             key={tick}
@@ -161,7 +155,8 @@ function MiniChart({ insight }: InsightCardProps) {
           />
         ))}
         <polygon
-          fill={`url(#area-${insight.label})`}
+          fill={insight.chartColor}
+          opacity="0.12"
           points={`0,${height} ${coordinates.join(" ")} ${width},${height}`}
         />
         <polyline
