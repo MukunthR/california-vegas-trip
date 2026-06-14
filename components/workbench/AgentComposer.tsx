@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, PointerEvent, useRef, useState } from "react";
 import {
   Maximize2,
   Mic,
@@ -16,6 +16,14 @@ export function AgentComposer() {
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<string[]>([]);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
+  const shellRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef<{
+    pointerId: number;
+    offsetX: number;
+    offsetY: number;
+  } | null>(null);
+  const movedRef = useRef(false);
 
   function submitQuery(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -26,8 +34,73 @@ export function AgentComposer() {
     setIsExpanded(true);
   }
 
+  function handleDragStart(event: PointerEvent<HTMLButtonElement>) {
+    if (event.button !== 0 || !shellRef.current) return;
+
+    const rect = shellRef.current.getBoundingClientRect();
+    dragRef.current = {
+      pointerId: event.pointerId,
+      offsetX: event.clientX - rect.left,
+      offsetY: event.clientY - rect.top,
+    };
+    movedRef.current = false;
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }
+
+  function handleDragMove(event: PointerEvent<HTMLButtonElement>) {
+    const drag = dragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId || !shellRef.current) return;
+
+    const rect = shellRef.current.getBoundingClientRect();
+    const nextX = Math.min(
+      Math.max(event.clientX - drag.offsetX, 12),
+      window.innerWidth - rect.width - 12,
+    );
+    const nextY = Math.min(
+      Math.max(event.clientY - drag.offsetY, 12),
+      window.innerHeight - rect.height - 12,
+    );
+
+    if (
+      Math.abs(nextX - rect.left) > 2 ||
+      Math.abs(nextY - rect.top) > 2
+    ) {
+      movedRef.current = true;
+    }
+
+    setPosition({ x: nextX, y: nextY });
+  }
+
+  function handleDragEnd(event: PointerEvent<HTMLButtonElement>) {
+    if (dragRef.current?.pointerId === event.pointerId) {
+      dragRef.current = null;
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  }
+
+  function toggleExpanded() {
+    if (movedRef.current) {
+      movedRef.current = false;
+      return;
+    }
+
+    setIsExpanded((current) => !current);
+  }
+
+  const shellStyle = position
+    ? {
+        left: position.x,
+        top: position.y,
+        transform: "none",
+      }
+    : undefined;
+
   return (
-    <div className="fixed bottom-5 left-1/2 z-40 w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2">
+    <div
+      ref={shellRef}
+      className="fixed bottom-5 left-1/2 z-40 w-[min(calc(100vw-2rem),720px)] -translate-x-1/2"
+      style={shellStyle}
+    >
       {isExpanded ? (
         <div className="mb-3 rounded-2xl border border-gray-200 bg-white/95 p-3 shadow-[0_18px_40px_rgba(15,23,42,0.18)] backdrop-blur-xl">
           <div className="mb-3 flex items-center justify-between gap-3">
@@ -107,10 +180,15 @@ export function AgentComposer() {
         onSubmit={submitQuery}
       >
         <button
-          className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[var(--jnj-brand-primary)] text-white transition hover:bg-[var(--jnj-brand-primary-dark)]"
+          className="grid h-10 w-10 shrink-0 cursor-grab touch-none place-items-center rounded-full bg-[var(--jnj-brand-primary)] text-white transition hover:bg-[var(--jnj-brand-primary-dark)] active:cursor-grabbing"
           type="button"
-          onClick={() => setIsExpanded((current) => !current)}
-          aria-label="Toggle agent panel"
+          onPointerDown={handleDragStart}
+          onPointerMove={handleDragMove}
+          onPointerUp={handleDragEnd}
+          onPointerCancel={handleDragEnd}
+          onClick={toggleExpanded}
+          aria-label="Drag or toggle agent panel"
+          title="Drag to move. Click to expand."
         >
           <Sparkles className="h-4 w-4" />
         </button>

@@ -48,7 +48,7 @@ export function InsightsCanvas() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="app-scrollbar flex gap-4 overflow-x-auto pb-1">
         {insightCards.map((insight) => (
           <InsightCard insight={insight} key={insight.title} />
         ))}

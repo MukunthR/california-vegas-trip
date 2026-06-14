@@ -63,6 +63,21 @@ export type Signal = {
   time: string;
 };
 
+export type BrandContextDetail = {
+  strategicPriorities: string[];
+  preferredMetrics: string[];
+  brandAspiration: string;
+  businessContext: string;
+  personalContext: Array<{
+    title: string;
+    items: string[];
+  }>;
+  groundingFlow: Array<{
+    title: string;
+    body: string;
+  }>;
+};
+
 export const modules: NavModule[] = [
   { id: "home", label: "Home", icon: Home },
   { id: "research", label: "Market Research", icon: Microscope },
@@ -113,6 +128,69 @@ export const brandContext = [
   "Protect ERLEADA NTS through affordability",
   "Accelerate DARZALEX SC conversion",
 ];
+
+export const brandContextDetail: BrandContextDetail = {
+  strategicPriorities: [
+    "Win 1st Line NSCLC with RYBREVANT",
+    "Protect ERLEADA NTS through affordability intervention",
+  ],
+  preferredMetrics: [
+    "TRx Volume",
+    "NTS ($)",
+    "NRx Share",
+    "HCP Reach",
+    "FEA Rate",
+    "Call Quality",
+    "Market Share",
+    "NPS",
+    "Fill Rate",
+    "Channel mROI",
+  ],
+  brandAspiration:
+    "Become the undisputed #1 in 1st Line NSCLC by Q4 2026.",
+  businessContext:
+    "FASPRO launch has accelerated Academic adoption. Key vulnerability: LAZCLUSE call quality and ERLEADA affordability barriers.",
+  personalContext: [
+    {
+      title: "Working Style",
+      items: [
+        "Prefers executive-level framing",
+        "Focuses on NTS variance first",
+        "Acts on signal, not just data",
+      ],
+    },
+    {
+      title: "Decision Patterns",
+      items: [
+        "Approves when confidence >85%",
+        "Requests field validation first",
+        "Prefers phased rollouts",
+      ],
+    },
+    {
+      title: "Frequently Asked",
+      items: [
+        '"What needs my attention today?"',
+        '"Show me NTS vs plan by brand"',
+        '"What is the ERLEADA recovery path?"',
+      ],
+    },
+  ],
+  groundingFlow: [
+    {
+      title: "Every Interaction",
+      body: "Queries, approvals, decisions",
+    },
+    {
+      title: "Personal Context",
+      body: "Personalises your AI responses",
+    },
+    {
+      title: "Organisational Knowledge",
+      body: "Builds J&J's brand intelligence layer",
+    },
+  ],
+};
 
 export const insightCards: Insight[] = [
   {

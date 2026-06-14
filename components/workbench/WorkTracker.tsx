@@ -79,7 +79,7 @@ export function WorkTracker() {
       <div className="app-scrollbar flex gap-3 overflow-x-auto pb-1">
         {workColumns.map((column) => (
           <div
-            className="min-w-[210px] flex-1 rounded-xl border border-gray-100 bg-gray-50/70 p-3"
+            className="min-w-[154px] flex-1 rounded-xl border border-gray-100 bg-gray-50/70 p-2.5"
             key={column.title}
           >
             <div className="mb-3 flex items-center justify-between">
@@ -91,12 +91,12 @@ export function WorkTracker() {
               </span>
             </div>
 
-            <div className="space-y-2.5">
+            <div className="space-y-2">
               {column.items.map((item) => (
                 <WorkCard item={item} key={item.title} />
               ))}
               <button
-                className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-gray-200 bg-white/70 px-3 py-2 text-[11px] font-semibold text-gray-400 transition hover:border-gray-300 hover:text-gray-600"
+                className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-gray-200 bg-white/70 px-2 py-1.5 text-[11px] font-semibold text-gray-400 transition hover:border-gray-300 hover:text-gray-600"
                 type="button"
               >
                 <Plus className="h-3 w-3" />
@@ -114,12 +114,12 @@ function WorkCard({ item }: { item: WorkItem }) {
   const Icon = itemIcons[item.icon as keyof typeof itemIcons] ?? FileText;
 
   return (
-    <article className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm">
+    <article className="rounded-xl border border-gray-200 bg-white p-2.5 shadow-sm">
       <div className="mb-2 flex gap-2">
-        <div className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-red-50 text-[var(--jnj-brand-primary)]">
+        <div className="grid h-6 w-6 shrink-0 place-items-center rounded-lg bg-red-50 text-[var(--jnj-brand-primary)]">
           <Icon className="h-3.5 w-3.5" />
         </div>
-        <h4 className="line-clamp-2 text-xs font-semibold leading-4 text-gray-900">
+        <h4 className="line-clamp-2 text-[11px] font-semibold leading-4 text-gray-900">
           {item.title}
         </h4>
       </div>
@@ -127,7 +127,7 @@ function WorkCard({ item }: { item: WorkItem }) {
       <div className="mb-3 flex flex-wrap gap-1">
         {item.tags.map((tag) => (
           <span
-            className="rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-medium text-gray-500"
+            className="rounded-full bg-gray-100 px-1.5 py-0.5 text-[9px] font-medium text-gray-500"
             key={tag}
           >
             {tag}
@@ -135,7 +135,7 @@ function WorkCard({ item }: { item: WorkItem }) {
         ))}
       </div>
 
-      <div className="flex items-center justify-between gap-2 text-[11px] text-gray-500">
+      <div className="flex items-center justify-between gap-2 text-[10px] text-gray-500">
         <span className="truncate font-medium">{item.owner}</span>
         <div className="flex shrink-0 items-center gap-1.5">
           {item.blocked ? (

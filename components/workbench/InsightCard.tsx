@@ -12,7 +12,7 @@ export function InsightCard({ insight }: InsightCardProps) {
   return (
     <article
       className={cn(
-        "flex min-h-[440px] flex-col overflow-hidden rounded-2xl border bg-white shadow-[0_2px_10px_rgba(15,23,42,0.06)]",
+        "flex min-h-[440px] w-[290px] shrink-0 flex-col overflow-hidden rounded-2xl border bg-white shadow-[0_2px_10px_rgba(15,23,42,0.06)]",
         isAttention ? "border-red-200" : "border-gray-200",
       )}
     >
