@@ -1,0 +1,39 @@
+{
+  "name": "ainf-workbench",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AINF Workbench frontend built with Next.js, TypeScript, and Tailwind.",
+  "dependencies": {
+    "lucide-react": "^1.18.0",
+    "next": "^16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MukunthR/california-vegas-trip.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/MukunthR/california-vegas-trip/issues"
+  },
+  "homepage": "https://github.com/MukunthR/california-vegas-trip#readme",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.1",
+    "@types/node": "^25.9.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.9",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3"
+  }
+}
